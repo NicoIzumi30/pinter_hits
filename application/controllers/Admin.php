@@ -3,8 +3,9 @@ class Admin extends CI_Controller
 {
 	public function index()
 	{
+		$data['title'] = 'Pinter Hits';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$this->load->view('template/header');
+		$this->load->view('template/header', $data);
 		$this->load->view('dashboard/index');
 		$this->load->view('template/footer');
 	}
@@ -12,8 +13,9 @@ class Admin extends CI_Controller
 	// Controller Category 
 	public function category()
 	{
+		$data['title'] = 'Category';
 		$data['category'] = $this->M_admin->get_data_category();
-		$this->load->view('template/header');
+		$this->load->view('template/header', $data);
 		$this->load->view('dashboard/category/category', $data);
 		$this->load->view('template/footer');
 	}
@@ -58,8 +60,9 @@ class Admin extends CI_Controller
 	}
 	public function edit_category($id)
 	{
+		$data['title'] = 'Change Data Category';
 		$data['category'] = $this->M_admin->get_data_category_where($id);
-		$this->load->view('template/header');
+		$this->load->view('template/header', $data);
 		$this->load->view('dashboard/category/edit_category', $data);
 		$this->load->view('template/footer');
 	}
@@ -102,8 +105,9 @@ class Admin extends CI_Controller
 	// Controller Variasi Menu
 	public function variasi()
 	{
+		$data['title'] = 'Variasi Menu';
 		$data['variasi'] = $this->M_admin->get_data_variasi();
-		$this->load->view('template/header');
+		$this->load->view('template/header', $data);
 		$this->load->view('dashboard/variasi/variasi', $data);
 		$this->load->view('template/footer');
 	}
