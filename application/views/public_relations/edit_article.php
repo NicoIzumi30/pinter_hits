@@ -22,24 +22,26 @@
 
                             <h3 class="widget-user-username">Article</h3>
 
-                            <h5 class="widget-user-desc">New Article</h5>
+                            <h5 class="widget-user-desc">Edit Article</h5>
 
                             <hr>
 
                         </div>
 
-                        <form action="<?= base_url() ?>pr/add_article" method="post" enctype="multipart/form-data">
+                        <?php foreach($article as $artikel) : ?>
+                            <form action="<?= base_url() ?>pr/update_article/<?=$artikel->id_artikel?>" method="post" enctype="multipart/form-data">
+                        
                             <div class="form-group ">
 
                                 <label for="judul_artikel" class="col-sm-2 control-label">Judul Artikel
 
-                                    <i class="required">*</i>
+                                    <i class="required" >*</i>
 
                                 </label>
 
                                 <div class="col-sm-8">
 
-                                    <input type="text" class="form-control" name="judul_artikel" id="judul_artikel" placeholder="Judul Artikel" value="<?= set_value('judul_artikel'); ?>">
+                                    <input type="text" class="form-control" name="judul_artikel" id="judul_artikel" placeholder="Judul Artikel" value="<?=$artikel->judul_artikel?>">
 
                                 </div>
 
@@ -59,7 +61,7 @@
 
                                 <div class="col-sm-8">
 
-                                    <textarea id="berita" name="berita" rows="5" cols="80"><?= set_value('Berita'); ?></textarea>
+                                    <textarea id="berita" name="berita" rows="5" cols="80"><?= set_value('Berita'); ?><?=$artikel->berita?></textarea>
 
                                     <small class="info help-block">
 
@@ -87,7 +89,7 @@
                                     <input type="text" id="penulis" name="penulis" class="form-control" value="<?= $this->session->userdata('name') ?>" placeholder="Disabled input">
                                     </div>
                                     </fieldset> -->
-                                    <input type="text" class="form-control" name="penulis" id="penulis" placeholder="Penulis" value="<?= $this->session->userdata('name') ?>">
+                                    <input type="text" class="form-control" name="penulis" id="penulis" placeholder="Penulis" value="<?= $this->session->userdata('name') ?>" disabled >
 
 
                                 </div>
@@ -98,10 +100,13 @@
                             <div class="form-group">
                             <div class="col-sm-8">
                                 <label>Image</label>
-                                <input type="file" name="image" class="form-control" required>
+                                <input type="file" name="image" class="form-control" >
                             </div>
                             </div>
-
+                            <input type="hidden" name="id" value="<?=$artikel->id_artikel?>">
+                            <input type="hidden" name="old" value="<?=$artikel->image?>">
+                            <input type="hidden" name="tanggal" value="<?=$artikel->tanggal?>">
+                           
 
 
 
@@ -113,8 +118,9 @@
                             <button type="submit" class="btn btn-sm btn-success">Save Article</button>
                             </div>
                             </div>
-
+                            
                         </form>
+                        <?php endforeach; ?>
 
                     </div>
 

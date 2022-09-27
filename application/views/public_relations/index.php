@@ -35,8 +35,8 @@
                                 <td width=30% height=30%><?= $pr['berita']; ?></td>
                                 <td><img src="<?= base_url() ?>assets/image/artikel/<?= $pr['image']; ?>?>" alt="" width="150px"></td>
                                 <td><?= $pr['tanggal']; ?></td>
-                                <td onclick="javascript: return confirm('Apakah anda yakin menghapus menu ini?')"><?php echo anchor('pr/delete/' . $pr['id_artikel'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                                <td><?php echo anchor('pr/edit/' . $pr['id_artikel'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></div>') ?></td>
+                                <td onclick="javascript: return confirm('Apakah anda yakin menghapus artikel ini?')"><?php echo anchor('pr/delete/' . $pr['id_artikel'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                                <td><?php echo anchor('pr/edit_article/' . $pr['id_artikel'], '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></div>') ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

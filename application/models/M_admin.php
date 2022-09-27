@@ -24,5 +24,9 @@ class M_admin extends CI_Model{
         $this->db->where($where);
         $this->db->update($table,$data);
      }
+     public function get_data_variasi_where($id){
+        $this->db->where_in('id_variasi', $id);
+        return $this->db->get('tb_variasi_menu')->result();
+    }
    
 }
