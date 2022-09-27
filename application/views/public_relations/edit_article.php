@@ -28,98 +28,98 @@
 
                         </div>
 
-                        <?php foreach($article as $artikel) : ?>
-                            <form action="<?= base_url() ?>pr/update_article/<?=$artikel->id_artikel?>" method="post" enctype="multipart/form-data">
-                        
-                            <div class="form-group ">
+                        <?php foreach ($article as $artikel) : ?>
+                            <form action="<?= base_url() ?>pr/edit_article/<?= $artikel->id_artikel ?>" method="post" enctype="multipart/form-data">
 
-                                <label for="judul_artikel" class="col-sm-2 control-label">Judul Artikel
+                                <div class="form-group ">
 
-                                    <i class="required" >*</i>
+                                    <label for="judul_artikel" class="col-sm-2 control-label">Judul Artikel
 
-                                </label>
+                                        <i class="required">*</i>
 
-                                <div class="col-sm-8">
+                                    </label>
 
-                                    <input type="text" class="form-control" name="judul_artikel" id="judul_artikel" placeholder="Judul Artikel" value="<?=$artikel->judul_artikel?>">
+                                    <div class="col-sm-8">
 
-                                </div>
+                                        <input type="text" class="form-control" name="judul_artikel" id="judul_artikel" placeholder="Judul Artikel" value="<?= $artikel->judul_artikel ?>">
 
-                            </div>
-
-
-
-
-
-                            <div class="form-group ">
-
-                                <label for="berita" class="col-sm-2 control-label">Berita
-
-                                    <i class="required">*</i>
-
-                                </label>
-
-                                <div class="col-sm-8">
-
-                                    <textarea id="berita" name="berita" rows="5" cols="80"><?= set_value('Berita'); ?><?=$artikel->berita?></textarea>
-
-                                    <small class="info help-block">
-
-                                    </small>
+                                    </div>
 
                                 </div>
 
-                            </div>
+
+
+
+
+                                <div class="form-group ">
+
+                                    <label for="berita" class="col-sm-2 control-label">Berita
+
+                                        <i class="required">*</i>
+
+                                    </label>
+
+                                    <div class="col-sm-8">
+
+                                        <textarea id="berita" name="berita" rows="5" cols="80"><?= set_value('Berita'); ?><?= $artikel->berita ?></textarea>
+
+                                        <small class="info help-block">
+
+                                        </small>
+
+                                    </div>
+
+                                </div>
 
 
 
 
 
-                            <div class="form-group ">
+                                <div class="form-group ">
 
-                                <label for="penulis" class="col-sm-2 control-label">Penulis
+                                    <label for="penulis" class="col-sm-2 control-label">Penulis
 
-                                    <i class="required">*</i>
+                                        <i class="required">*</i>
 
-                                </label>
+                                    </label>
 
-                                <div class="col-sm-8">
-                                <!-- <fieldset disabled> 
+                                    <div class="col-sm-8">
+                                        <!-- <fieldset disabled> 
                                 <div class="mb-3">
                                     <input type="text" id="penulis" name="penulis" class="form-control" value="<?= $this->session->userdata('name') ?>" placeholder="Disabled input">
                                     </div>
                                     </fieldset> -->
-                                    <input type="text" class="form-control" name="penulis" id="penulis" placeholder="Penulis" value="<?= $this->session->userdata('name') ?>" disabled >
+                                        <input type="text" class="form-control" name="penulis" id="penulis" placeholder="Penulis" value="<?= $this->session->userdata('name') ?>" readonly>
 
+
+                                    </div>
 
                                 </div>
 
-                            </div>
 
-
-                            <div class="form-group">
-                            <div class="col-sm-8">
-                                <label>Image</label>
-                                <input type="file" name="image" class="form-control" >
-                            </div>
-                            </div>
-                            <input type="hidden" name="id" value="<?=$artikel->id_artikel?>">
-                            <input type="hidden" name="old" value="<?=$artikel->image?>">
-                            <input type="hidden" name="tanggal" value="<?=$artikel->tanggal?>">
-                           
+                                <div class="form-group">
+                                    <div class="col-sm-8">
+                                        <label>Image</label>
+                                        <input type="file" name="image" class="form-control">
+                                    </div>
+                                </div>
+                                <input type="hidden" name="id" value="<?= $artikel->id_artikel ?>">
+                                <input type="hidden" name="old" value="<?= $artikel->image ?>">
+                                <input type="hidden" name="tanggal" value="<?= $artikel->tanggal ?>">
 
 
 
 
 
-                            <div class="message"></div>
-                            <div class="modal-footer">
-                            <div class="col-lg-5">
-                            <button type="submit" class="btn btn-sm btn-success">Save Article</button>
-                            </div>
-                            </div>
-                            
-                        </form>
+
+                                <div class="message"></div>
+                                <div class="modal-footer">
+                                    <div class="col-lg-5">
+                                        <button type="submit" class="btn btn-sm btn-success">Save Article</button>
+                                    </div>
+                                </div>
+
+                            </form>
                         <?php endforeach; ?>
 
                     </div>

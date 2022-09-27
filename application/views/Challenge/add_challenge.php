@@ -20,18 +20,18 @@
 
                             <!-- /.widget-user-image -->
 
-                            <h3 class="widget-user-username">Article</h3>
+                            <h3 class="widget-user-username">Challenge</h3>
 
-                            <h5 class="widget-user-desc">New Article</h5>
+                            <h5 class="widget-user-desc">New Challenge</h5>
 
                             <hr>
 
                         </div>
 
-                        <form action="<?= base_url() ?>pr/add_article" method="post" enctype="multipart/form-data">
+                        <form action="<?= base_url() ?>challenge/add_challenge" method="post" enctype="multipart/form-data">
                             <div class="form-group ">
 
-                                <label for="judul_artikel" class="col-sm-2 control-label">Judul Artikel
+                                <label for="title" class="col-sm-2 control-label">Judul Challenge
 
                                     <i class="required">*</i>
 
@@ -39,7 +39,7 @@
 
                                 <div class="col-sm-8">
 
-                                    <input type="text" class="form-control" name="judul_artikel" id="judul_artikel" placeholder="Judul Artikel" value="<?= set_value('judul_artikel'); ?>">
+                                    <input type="text" class="form-control" name="title" id="title" placeholder="Judul Challenge" value="<?= set_value('title'); ?>">
 
                                 </div>
 
@@ -51,7 +51,7 @@
 
                             <div class="form-group ">
 
-                                <label for="berita" class="col-sm-2 control-label">Berita
+                                <label for="deskripsi" class="col-sm-2 control-label">Deskripsi
 
                                     <i class="required">*</i>
 
@@ -59,7 +59,7 @@
 
                                 <div class="col-sm-8">
 
-                                    <textarea id="berita" name="berita" rows="5" cols="80"><?= set_value('Berita'); ?></textarea>
+                                    <textarea id="deskripsi" name="deskripsi" rows="5" cols="80"><?= set_value('deskripsi'); ?></textarea>
 
                                     <small class="info help-block">
 
@@ -69,38 +69,48 @@
 
                             </div>
 
-
-
-
-
                             <div class="form-group ">
 
-                                <label for="penulis" class="col-sm-2 control-label">Penulis
+                                <label for="s&k" class="col-sm-2 control-label">Cara Berpartisipasi
 
                                     <i class="required">*</i>
 
                                 </label>
 
                                 <div class="col-sm-8">
-                                    <!-- <fieldset disabled> 
-                                <div class="mb-3">
-                                    <input type="text" id="penulis" name="penulis" class="form-control" value="<?= $this->session->userdata('name') ?>" placeholder="Disabled input">
-                                    </div>
-                                    </fieldset> -->
-                                    <input type="text" class="form-control" name="penulis" id="penulis" placeholder="Penulis" value="<?= $this->session->userdata('name') ?>" readonly>
 
+                                    <textarea id="s&k" name="s&k" rows="5" cols="80"><?= set_value('s&k'); ?></textarea>
+
+                                    <small class="info help-block">
+
+                                    </small>
 
                                 </div>
 
                             </div>
-
 
                             <div class="form-group">
                                 <div class="col-sm-8">
-                                    <label>Image</label>
+                                    <label>Poster</label>
                                     <input type="file" name="image" class="form-control" required>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    <label for="periode" class="col-sm-2 control-label">Periode
+
+                                        <i class="required">*</i>
+                                        <?php $now = date_create()->format('Y-m-d');
+                                        ?>
+                                    </label>
+                                    <input type="date" name="periode" class="form-control" min='<?= $now ?>'>
+                                </div>
+                            </div>
+
+
+
+
 
 
 
@@ -110,7 +120,7 @@
                             <div class="message"></div>
                             <div class="modal-footer">
                                 <div class="col-lg-5">
-                                    <button type="submit" class="btn btn-sm btn-success">Save Article</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Add Challenge</button>
                                 </div>
                             </div>
 
@@ -132,7 +142,8 @@
 
 </section>
 
-<script src="<?= base_url() ?>assets/ckeditor/ckeditor2/ckeditor.js"></script>
+<script src="<?= base_url() ?>assets/ckeditor/ckeditor1/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace('berita');
+    CKEDITOR.replace('deskripsi');
+    CKEDITOR.replace('s&k');
 </script>
