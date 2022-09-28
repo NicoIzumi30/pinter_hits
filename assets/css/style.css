@@ -1,0 +1,44 @@
+.home-subscribe-container {
+	background-color: #272730;
+	padding: 15px 0 30px;
+	margin: 28px 0 0
+}
+
+.home-subscribe-container .subscribe-social-medias a {
+	display: block;
+	margin: 0 15px
+}
+
+@media (min-width:576px) {
+	.home-subscribe-container .subscribe-social-medias a {
+		margin: 0 20px
+	}
+
+	.home-subscribe-container .subscribe-social-medias a {
+		display: block;
+		margin: 0 15px
+	}
+
+}
+
+@media (min-width:576px) {
+	.home-subscribe-container .subscribe-social-medias a {
+		margin: 0 20px
+	}
+}
+
+.footer-copyright {
+	color: white;
+	background-color: #272730;
+}
+
+body {
+	background-color: #32323e !important;
+
+	/*	background-repeat: no-repeat;*/
+	/*	background-size: cover;*/
+}
+
+.bg-green {
+	background-color: #61c9a1;
+}
