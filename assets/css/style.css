@@ -42,3 +42,22 @@ body {
 .bg-green {
 	background-color: #61c9a1;
 }
+
+.img250px {
+	height: 250px;
+}
+
+.overlay-kece {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	border-radius: calc(0.25rem - 1px);
+}
+
+@media (min-width:576px) {
+	.img250px {
+		height: 250px;
+	}
+}

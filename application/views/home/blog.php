@@ -30,7 +30,7 @@
   </nav>
 </section>
 <!-- section 2 -->
-<div class="container my-5">
+<div class="container my-5" style="min-height:560px">
   <h4 class="text-white text-center pb-4"><strong>Pinter Hits Blog</strong></h4>
   <div class="row row-cols-1 row-cols-lg-2 justify-content-center">
     <?php foreach ($blog as $b) : ?>

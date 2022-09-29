@@ -9,10 +9,10 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center subscribe-social-medias mt-4">
-                    <a class="pr-5" rel="noreferrer" aria-label=" Instagram Social Media link" href="https://www.instagram.com/pinterhitsbox" target="_blank">
+                    <a class="pr-5" rel="noreferrer" aria-label=" Instagram Social Media link" href="https://www.instagram.com/pinterhitsbox.id/" target="_blank">
                         <img alt="" src="<?= base_url() ?>assets/svg/instagram-w.svg">
                     </a>
-                    <a rel="noreferrer" aria-label="tiktok Social Media link" href="https://www.tiktok.com/@pinterhitsbox" target="_blank">
+                    <a rel="noreferrer" aria-label="tiktok Social Media link" href="https://www.tiktok.com/@pinterbox" target="_blank">
                         <img alt="" src="<?= base_url() ?>assets/svg/tiktok-w.svg" width="36px">
                     </a>
 
@@ -45,8 +45,8 @@
                 </div>
 
 
-                <p class="pl-3"><i class="fas fa-envelope"></i></b> <a class="home-cs-card" href="mailto:nicoxcode30@gmail.com" target="_blank" rel="noreferrer" style="color: white;">Email</a></p>
-                <p class="pl-3"><i class="fab fa-whatsapp"></i></b> <a href="https://wa.me/62859126462972" style="color: white;">Chat WhatsApp</a></p>
+                <p class="pl-3"><i class="fas fa-envelope"></i></b> <a class="home-cs-card" href="#" target="_blank" rel="noreferrer" style="color: white;text-decoration: none;">Email</a></p>
+                <p class="pl-3"><i class="fab fa-whatsapp"></i></b> <a href="#" style="color: white;text-decoration: none;">Chat WhatsApp</a></p>
             </div>
         </div>
     </div>

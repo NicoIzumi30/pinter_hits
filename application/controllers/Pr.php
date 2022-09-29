@@ -151,4 +151,12 @@ class Pr extends CI_Controller
             redirect('pr/upload_image');
         }
     }
+    public function delete_image($id)
+    {
+        $where = array(
+            'id' => $id
+        );
+        $this->M_pr->delete($where, 'image');
+        redirect('pr/upload_image');
+    }
 }

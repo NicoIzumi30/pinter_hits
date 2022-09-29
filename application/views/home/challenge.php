@@ -48,7 +48,7 @@
                                 ?>
                                 <p class="card-text"><?= $getData ?></p>
                                 <div class="float-end mt-5">
-                                    <a href="<?= base_url('home/detail_challenge') ?>" style="text-decoration: none;">Lihat Selengkapnya...</a>
+                                    <a href="<?= base_url('') ?>home/detail/<?= $c['id'] ?>" style="text-decoration: none;">Lihat Selengkapnya...</a>
                                 </div>
                             </div>
                         </div>

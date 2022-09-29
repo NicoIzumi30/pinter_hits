@@ -47,11 +47,11 @@ class Home extends CI_Controller
     }
     public function detail($id)
     {
-        $data['title'] = 'Blog Pinter Hits Boxs';
-        $this->db->where_in('id_artikel', $id);
+        $data['title'] = 'Pinter Hits Boxs Challenge';
+        $this->db->where_in('id', $id);
         $data['challenge'] = $this->db->get('challenge')->result();
         $this->load->view('template/home_head', $data);
-        $this->load->view('home/challenge', $data);
+        $this->load->view('home/detail_challenge', $data);
         $this->load->view('template/home_footer');
     }
     public function variasi($id)
@@ -60,7 +60,16 @@ class Home extends CI_Controller
         $this->db->where_in('id_category', $id);
         $data['variasi'] = $this->db->get('tb_variasi_menu')->result();
         $this->load->view('template/home_head', $data);
-        $this->load->view('home/challenge', $data);
+        $this->load->view('home/daftar_menu', $data);
+        $this->load->view('template/home_footer');
+    }
+    public function menu($id)
+    {
+        $data['title'] = 'Variasi Menu';
+        $this->db->where_in('id_variasi', $id);
+        $data['variasi'] = $this->db->get('tb_variasi_menu')->result();
+        $this->load->view('template/home_head', $data);
+        $this->load->view('home/detail_menu', $data);
         $this->load->view('template/home_footer');
     }
 }
