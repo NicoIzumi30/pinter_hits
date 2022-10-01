@@ -3,6 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Menu extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        is_logged_in();
+        // if (!$this->session->userdata('email')) {
+        //     redirect('auth');
+        // }
+    }
     public function index()
     {
         $data['title'] = 'Menu Management';
@@ -50,10 +58,12 @@ class Menu extends CI_Controller
     public function update_menu($id)
     {
         $this->form_validation->set_rules('menu', 'Menu', 'required');
+        $this->form_validation->set_rules('icon', 'Icon', 'required');
         if ($this->form_validation->run() == false) {
         } else {
             $data = array(
-                'menu' => $this->input->post('menu')
+                'menu' => $this->input->post('menu'),
+                'icon' => $this->input->post('icon')
             );
             $where = array(
                 'id' => $id
@@ -167,5 +177,91 @@ class Menu extends CI_Controller
         $this->load->view('template/header', $data);
         $this->load->view('menu/edit_access', $data);
         $this->load->view('template/footer');
+    }
+    public function role()
+    {
+        $data['title'] = 'Role';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('role', 'Role', 'required');
+        if ($this->form_validation->run() == false) {
+            $data['role'] = $this->db->get('user_role')->result_array();
+            $this->load->view('template/header', $data);
+            $this->load->view('menu/role', $data);
+            $this->load->view('template/footer');
+        } else {
+            $this->db->insert('user_role', ['role' => $this->input->post('role')]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            New role added!
+          </div>');
+            redirect('menu/role');
+        }
+    }
+    public function delete_role($id)
+    {
+        $where = array(
+            'id' => $id
+        );
+        $this->M_menu->delete($where, 'user_role');
+        redirect('menu/role');
+    }
+    public function edit_role($id)
+    {
+        $data['title'] = 'Edit Role';
+        $data['role'] = $this->M_menu->get_data_role_where($id);
+        $this->load->view('template/header', $data);
+        $this->load->view('menu/edit_role', $data);
+        $this->load->view('template/footer');
+    }
+    public function update_role($id)
+    {
+        $this->form_validation->set_rules('role', 'Role', 'required');
+        if ($this->form_validation->run() == false) {
+        } else {
+            $data = array(
+                'role' => $this->input->post('role')
+            );
+            $where = array(
+                'id' => $id
+            );
+            $this->M_menu->update($where, 'user_role', $data);
+            $this->session->set_flashdata('message_update', '<div class="alert alert-success" role="alert">
+            Update Success
+          </div>');
+            redirect('menu/role');
+        }
+    }
+    public function roleAccess($role_id)
+    {
+        $data['title'] = 'Role Access';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
+        $this->db->where('id !=', 1);
+        $data['menu'] = $this->db->get('user_menu')->result_array();
+        $this->load->view('template/header', $data);
+        $this->load->view('menu/role-access', $data);
+        $this->load->view('template/footer');
+    }
+    public function changeaccess()
+    {
+        $menu_id = $this->input->post('menuId');
+        $role_id = $this->input->post('roleId');
+
+        $data = [
+            'role_id' => $role_id,
+            'menu_id' => $menu_id
+        ];
+
+        $result = $this->db->get_where('user_access_menu', $data);
+
+        if ($result->num_rows() < 1) {
+            $this->db->insert('user_access_menu', $data);
+        } else {
+            $this->db->delete('user_access_menu', $data);
+        }
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Access Changed!
+          </div>');
     }
 }

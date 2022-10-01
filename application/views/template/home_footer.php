@@ -51,11 +51,26 @@
         </div>
     </div>
     <div class="footer-copyright text-center py-3 foterr">
-        <p> ©Copyright Pinter Hits Boxs 2022 </p>
+        <p> ©Copyright Pinter Hits Box 2022 </p>
 
     </div>
 </footer>
 <!-- end footer -->
+<script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+<script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="<?= base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="<?= base_url() ?>assets/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="<?= base_url() ?>assets/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="<?= base_url() ?>assets/js/demo/chart-area-demo.js"></script>
+<script src="<?= base_url() ?>assets/js/demo/chart-pie-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
 </script>
 <script src="<?= base_url() ?>assets/js/script.js"></script>
@@ -63,6 +78,26 @@
 <script>
     AOS.init();
 </script>
+<script>
+    $('.form-check-input').on('click', function() {
+        const menuId = $(this).data('menu');
+        const roleId = $(this).data('role');
+
+        $.ajax({
+            url: "<?= base_url('menu/changeaccess') ?>",
+            type: 'post',
+            data: {
+                menuId: menuId,
+                roleId: roleId
+            },
+
+            success: function() {
+                document.location.href = "<?= base_url('menu/roleAccess/') ?>" + roleId;
+            }
+        });
+    });
+</script>
+
 </body>
 
 </html>

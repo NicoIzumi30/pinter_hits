@@ -37,8 +37,8 @@
                                 <td><img class="image-responsive" src="<?= base_url() ?>assets/image/category/<?= $cat->image ?>" width="100px" height="75px"></td>
 
                                 <td><?= $cat->deskripsi ?></td>
-                                <td onclick="javascript: return confirm('Apakah anda yakin menghapus category ini?')"><?php echo anchor('admin/del_category/' . $cat->id_category, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                                <td><?php echo anchor('admin/edit_category/' . $cat->id_category, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></div>') ?></td>
+                                <td onclick="javascript: return confirm('Apakah anda yakin menghapus category ini?')"><?php echo anchor('product/del_category/' . $cat->id_category, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                                <td><?php echo anchor('product/edit_category/' . $cat->id_category, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></div>') ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -57,7 +57,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url() ?>admin/add_category" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url() ?>product/add_category" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nama">Nama Kategori</label>
                         <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Category">

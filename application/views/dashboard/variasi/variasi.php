@@ -44,8 +44,8 @@
                                 <td><img class="image-responsive" src="<?= base_url() ?>assets/image/variasi/<?= $menu->image ?>" width="100px" height="75px"></td>
 
                                 <td><?= $menu->cara_pembuatan ?></td>
-                                <td onclick="javascript: return confirm('Apakah anda yakin menghapus variasi ini?')"><?php echo anchor('admin/del_variasi/' . $menu->id_variasi, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                                <td><?php echo anchor('admin/edit_variasi/' . $menu->id_variasi, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></div>') ?></td>
+                                <td onclick="javascript: return confirm('Apakah anda yakin menghapus variasi ini?')"><?php echo anchor('product/del_variasi/' . $menu->id_variasi, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                                <td><?php echo anchor('product/edit_variasi/' . $menu->id_variasi, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></div>') ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -64,7 +64,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url() ?>admin/add_variasi" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url() ?>product/add_variasi" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nama">Nama Variasi</label>
                         <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Variasi Menu">

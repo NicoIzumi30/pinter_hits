@@ -43,6 +43,13 @@ body {
 	background-color: #61c9a1;
 }
 
+.bg-all {
+
+	background-size: cover !important;
+	height: 730px;
+	background-color: #213559 !important;
+}
+
 .img250px {
 	height: 250px;
 }

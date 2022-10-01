@@ -9,6 +9,9 @@
                 <div class="form-group">
                     <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu Name" value="<?= $m->menu ?>">
                 </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="icon" name="icon" placeholder="ICon" value="<?= $m->icon ?>">
+                </div>
                 <input type="hidden" value="<?= $m->id ?>" name="id">
                 <div class="modal-footer">
                     <input class="btn btn-primary" type="submit" value="Update">

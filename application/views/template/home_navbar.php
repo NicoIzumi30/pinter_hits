@@ -1,5 +1,5 @@
 <!-- section one -->
-<section style="background:url('<?= base_url() ?>assets/img/123.jpg')no-repeat center; background-size: cover; height:730px;">
+<section class="bg-all" style="background: url('<?= base_url() ?>assets/img/1234.png')no-repeat center">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent mb-5" id="navbar">
         <div class="container py-2" id="navCont">

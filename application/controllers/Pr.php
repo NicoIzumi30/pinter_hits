@@ -1,8 +1,16 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pr extends CI_Controller
+class PR extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        is_logged_in();
+        // if (!$this->session->userdata('email')) {
+        //     redirect('auth');
+        // }
+    }
     public function article()
     {
         $data['title'] = 'Article';
@@ -50,7 +58,7 @@ class Pr extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Article added!!
                  </div>');
-                redirect('pr/article');
+                redirect('PR/article');
             }
         }
     }
@@ -60,7 +68,7 @@ class Pr extends CI_Controller
             'id_artikel' => $id
         );
         $this->M_pr->delete($where, 'artikel');
-        redirect('pr/article');
+        redirect('PR/article');
     }
     // public function edit_article($id)
     // {
@@ -112,7 +120,7 @@ class Pr extends CI_Controller
                 'id_artikel' => $id
             );
             $this->M_admin->update($where, 'artikel', $data);
-            redirect('pr/article');
+            redirect('PR/article');
         }
     }
     public function upload_image()
@@ -148,7 +156,7 @@ class Pr extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Upload Success!!
                  </div>');
-            redirect('pr/upload_image');
+            redirect('PR/upload_image');
         }
     }
     public function delete_image($id)
@@ -157,6 +165,6 @@ class Pr extends CI_Controller
             'id' => $id
         );
         $this->M_pr->delete($where, 'image');
-        redirect('pr/upload_image');
+        redirect('PR/upload_image');
     }
 }

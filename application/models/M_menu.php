@@ -6,6 +6,11 @@ class M_menu extends CI_Model
         $this->db->where_in('id', $id);
         return $this->db->get('user_menu')->result();
     }
+    public function get_data_role_where($id)
+    {
+        $this->db->where_in('id', $id);
+        return $this->db->get('user_role')->result();
+    }
 
     public function update($where, $table, $data)
     {

@@ -5,7 +5,7 @@
         </div>
         <div class="col-md-7 p-3">
             <?php foreach ($variasi as $vm) ?>
-            <form action="<?= base_url() ?>admin/update_variasi/<?= $vm->id_variasi ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url() ?>product/update_variasi/<?= $vm->id_variasi ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nama">Nama Variasi</label>
                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Variasi Menu" value="<?= $vm->nama_variasi;; ?>">
