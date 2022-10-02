@@ -16,6 +16,7 @@
                 <button class="btn btn-primary" data-toggle="modal" data-target="#newRoleModal"> Add New Role</button>
             </div>
 
+            <button class="btn btn-sm btn-danger" onclick="myFunction()">Click Me</button>
 
             <div class="table-responsive">
                 <table class="table table-hover text-center">
@@ -43,6 +44,7 @@
         </div>
     </div>
 </div>
+
 
 
 

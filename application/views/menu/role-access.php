@@ -37,3 +37,24 @@
         </div>
     </div>
 </div>
+<script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+
+<script>
+    $('.form-check-input').on('click', function() {
+        const menuId = $(this).data('menu');
+        const roleId = $(this).data('role');
+
+        $.ajax({
+            url: "<?= base_url('menu/changeaccess') ?>",
+            type: 'POST',
+            data: {
+                menuId: menuId,
+                roleId: roleId
+            },
+
+            success: function() {
+                document.location.href = "<?= base_url('menu/roleAccess/') ?>" + roleId;
+            }
+        });
+    });
+</script>
